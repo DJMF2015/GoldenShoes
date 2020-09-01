@@ -4,8 +4,17 @@
   "description": "ecommerce AndDigital",
   "main": "app.js",
   "scripts": {
+    "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David_Fulton",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.2",
+    "nodemon": "^2.0.4"
+  }
 }
