@@ -1,0 +1,44 @@
+<%- include('./partials/header'); %>
+
+<head>
+    <title>Home Page</title>
+    <link rel='stylesheet' type='text/css' href='public/styles.css'>
+
+  
+</head>
+ 
+<br><br><br><br><br><br><br><br><br>
+<ul class=myList>
+    <h3><a class="btn btn-secondary" href="/contact"><i class="fa fa-plus"></i> Create New</a> Your Messages</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Comment</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <%  contacts.forEach(function(item){ %>
+
+            <tr>
+                <div id="contact">
+                <td><%=item.name%></td>
+                <td><%=item.email%></td>
+                <td><%=item.subject%></td>
+                <td><%=item.comment%></td>
+                <td>
+
+                    <a href="/contact/delete/<%=item._id%>"
+                        onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i> </a>
+                </td>
+            </tr>
+            <% }) %>
+            </div>
+        </ul>
+        </tbody>
+    </table>
+<%- include('./partials/footer'); %>

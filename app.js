@@ -1,44 +1,57 @@
-var express = require('express');
-const app = express();
 const port = 8080;
+const http = require('http');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const expressSanitizer = require('express-sanitizer');
 
+// var session = require('express-session');
+const _ = require("lodash"); 
+const ContactRouter = require('./routes/contactRoute.js');
+const ProductRouter = require('./routes/productRoute.js');
+ 
+ 
+const app = express();
+ 
 app.set('view engine', 'ejs');
-app.use('/public',express.static('public'));
+app.use('/public', express.static('public'));
+app.use(cookieParser());
+app.use(expressSanitizer());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(ContactRouter);
+app.use(ProductRouter);
 
-var arrayDB = require('./public/DBdata.js');
-const items = []
+//setup and establish connection to mongodb client and mongoose orm
+mongoose.connect('mongodb://localhost/goldenshoeDB', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connection.once('open', function () {
+  console.log('successfully connected to DB...');
+}).on('error', function (err) {
+  console.log(err);
+});
+ 
+ 
 
-
-console.log(arrayDB);
-
-app.get('/', function(req, res){
-  res.send('you are on the HomePage')
+//HOME PAGE
+app.get('/', function (req, res) {
+  res.render('home');
 });
 
-app.get('/product/:type', function(req, res){
-  const type = req.params.type;
-  const tempArray = [];
-
-	for(i=0;i<arrayDB.length;i++){
-		if(type === arrayDB[i].type){
-			tempArray.push(arrayDB[i]);
-		}
-	}
-	res.send({products:tempArray});
-});
-
-app.get('/products', function(req, res){
-  res.render('productsPage',{products: arrayDB});
+app.get('/home', function (req, res) {
+  res.render('home');
 });
 
 
+// ERROR PAGE
+app.use((req, res) => {
+  res.status(404).send('<h1>Sorry, Page not found. Have you checked the correct URL ?');
+});
 
+const server = http.createServer(app);
+ 
 
-
-
-
-app.listen(port, function(){
+app.listen(port, server, function () {
   console.log("server is up and running at port " + port);
 });
 
-// module.exports = app;

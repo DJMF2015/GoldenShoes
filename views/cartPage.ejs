@@ -1,0 +1,71 @@
+<%- include('./partials/header'); %>
+
+<head>
+    <title>Cart Page</title>
+   <link rel='stylesheet' type='text/css' href='public/styles.css'>
+<link rel='stylesheet' type='text/css' href='public/styles3.css'>
+        <script src='public/jquery.js'></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+
+<hr>
+<br> 
+ 
+<div class='header'>
+    <div class='navigation'>
+        <div class='navLink'>
+            <a href='home'>Home</a>
+        </div>
+        <div class='navLink'>
+            <a href='products'>Shoes</a>
+        </div>
+        <div class='navLink'>
+            <a href='cart'>Cart <em><% if(cartNumb != 0){ %><%= cartNumb %><% } %></em></a>
+        </div>
+        <div class='navLink'>
+            <a href='../contact'>Contact</a>
+        </div>
+    </div>
+</div> 
+<ul id="myList">
+    <div class='cart'>
+        <% for(var i =0; i<cartValues.length; i++){ %>
+        <div class='item'>
+            <div class='itemContent'>
+
+                <img src='public/<%= cartValues[i].image %>'>
+                <div class='listingText'>
+                    <h2><%= cartValues[i].title %>: £<%= cartValues[i].price %> </h2>
+                </div>
+            </div>
+
+            <div class='itemRemove'>
+                <a href='remove/<%= cartValues[i].ID %>'><button>Remove</button></a>
+            </div>
+        </div>
+        <% } %>
+</ul>
+<hr>
+ 
+<br>
+<div class='checkout'>
+    <div>
+        <% if(total > 0 ){ %>
+        <h2>Total: £<%= total %> + £5.00 (Shipping Tax) </h2>
+        <% } else { %>
+        <h2>
+            <modal>No Items Remaining In Cart
+        </h2>
+        </modal>
+
+        <% } %>
+    </div>
+    <hr>
+    <form action='/chargePaypal' method="POST">
+        <input type="submit" value="PayPal" class="paypalButton">
+        <input type="hidden" name="description" value='<%= cart %>'>
+    </form>
+</div>
+</div>
+<%- include('./partials/footer'); %>

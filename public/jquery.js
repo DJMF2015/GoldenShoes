@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
 	$('.buttonsContainer').on('click', 'button', function () {
-		var color = $(this).text();
+		var product = $(this).text();
 
 		$.ajax({
-			url: `/product/${color}`,
+			url: `/product/${product}`,
 			type: 'GET',
 			dataType: 'json',
 			success: function (data) {
@@ -15,7 +15,7 @@ $(document).ready(function () {
 					var img = data.products[i].image;
 					var title = data.products[i].title;
 					var price = data.products[i].price;
-          var price = data.products[i].type;
+					var price = data.products[i].type;
 					var ID = data.products[i].ID;
 
 					$('.productsContainer').append(`
@@ -39,10 +39,10 @@ $(document).ready(function () {
 					`);
 				}
 			}
-
 		});
 	});
 
+	//add to cart
 	$('body').on('click', '#addCart', function () {
 		var ID = $(this).val();
 
@@ -52,7 +52,6 @@ $(document).ready(function () {
 			dataType: "json",
 			success: function (data) {
 				$('.navLink em').html('');
-
 				var cartNumb = data.cartNumb;
 
 				$('.navLink em').html(cartNumb);
@@ -61,7 +60,5 @@ $(document).ready(function () {
 
 		});
 	});
-
-
 
 });

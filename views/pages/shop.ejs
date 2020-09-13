@@ -1,0 +1,67 @@
+<%- include('../partials/header'); %>
+<head>
+    <title>Shop Page</title>
+  
+        <link rel='stylesheet' type='text/css' href='../public/styles3.css'>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <script src='../public/jquery.js'></script>  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+<script src='../public/store.js'></script>
+</head>
+ 
+    <hr><br><br>
+<ul id="myList"> 
+    <div class='colorsBody'>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Stock</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <%  items.forEach(function(item){ %>
+
+                <tr>
+                    <td><%=item.title%></td>
+                  
+                   <td> <div class="card" style="width: 18rem;">
+      
+                            <img src='public/<%= item.image %>' class="card-img-top" alt="shoe">
+                        <div class="card-body">
+                            <p class="card-text">View theBbest Shoes Goldens Shoes has to Offer!</p>
+                        </div></td>
+                    </div>
+                    <td><%=item.price%></td>
+                    <td><%=item.type%></td>
+                 <td> <%=item.description.slice(0,101 ) + '..........!'%>  
+               
+                    <td><%=item.stock%></td>
+
+                    <td>
+                        <div class="form-group">
+                            <form class="item" action="/singleItem/<%=item._id%>" method="GET">
+                                <button type="submit" data-item-id="<%= item._id %> <%=item.price%>" name="button" class="btn btn-info"
+                                    style="margin: 0px; height: 20%; width: 150px">
+                                    <i class="fa fa-database"></i> Read More</button>
+                                    
+                            </form>
+                            <a class="btn btn-secondary" href="/singleItem/<%=item.id%>"><i class=" fa fa-list-alt"></i> Read More</a>
+                        </div>
+          
+                    </td>
+                </tr>
+                <% }) %>
+</ul>
+            </tbody>
+        </table>
+    </div>
+<%- include('../partials/footer'); %>
+ 

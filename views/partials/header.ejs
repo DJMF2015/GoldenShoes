@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+ 
+    <meta charset="utf-8">
+    <!-- Bootstrap3-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="public/styles3.css">
+    <link rel="stylesheet" href="public/styles.css">
+  
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myList href").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</head>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand">Golden Shoe</p>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- 6 -->
+                <li id="home"><a href="/home">HOME</a></li>
+                <li id="products"><a href="/products">SHOES</a></li>
+                <!-- <li id="cart"><a href="/cart">CART</a></li> -->
+                <!-- <li id="shop"><a href="/shop">View Range</a></li> -->
+                <li id="about"><a href="#">ABOUT US</a></li> 
+                <li id="contact"><a href="/contact">CONTACT US</a></li>
+                <li><input class="form-control" id="myInput" type="text" placeholder="Search for title."></li>
+            </ul>
+        </div>

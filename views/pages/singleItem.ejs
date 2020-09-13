@@ -1,0 +1,333 @@
+<%- include('../partials/header'); %>
+
+<head>
+    <title>Further Information Page</title>
+
+    <link rel='stylesheet' type='text/css' href='../public/style.css'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ 
+</head>
+ 
+
+<div class='colorsBody'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Stock</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ul id="myList">
+                <%  items.forEach(function(item){ %>
+
+                <td><%=item.title%></td>
+                <td><img src='../public/<%= item.image %>'></td>
+                <td><%=item.price%></td>
+                <td><%=item.type%></td>
+                <td><%=item.description%></td>
+                <td><%=item.stock%></td>
+                <td>
+
+
+                </td>
+
+                <% }) %>
+            </ul>
+        </tbody>
+    </table>
+    <div id="sizeGuide" class="" data-close-text="Close" data-slideout-title="Size Guide" hidden>
+        <div class="size">
+            <div class="size-section size--intro">
+                <p class="size__text--intro">We know correctly fitting shoes are important which is why we offer whole
+                    and
+                    half sizes and a range of widths for a perfect fit!</p>
+            </div>
+            <div class="size-section size--table">
+                <div class="size-table size-table--womens" style="display:block">
+                    <table>
+                        <caption class="size__caption--sizecharts">Womens Golden Shoes shoe sizes</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col"><span class="size__span--table">GS </span>UK Size</th>
+                                <th scope="col"><span class="size__span--table">GS </span>EU Size</th>
+                                <th scope="col"><span class="size__span--table">Standard </span>EU Size</th>
+                                <th scope="col">Foot length <span
+                                        class="size__span--table-cms size__span--table-cms-desktop">(Millimetres)</span><span
+                                        class="size__span--table-cms size__span--table-cms-mobile">(MMs)</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>34</td>
+                                <td>35</td>
+                                <td>212</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2½</th>
+                                <td>35</td>
+                                <td>35½</td>
+                                <td>216</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>35½</td>
+                                <td>36</td>
+                                <td>221</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3½</th>
+                                <td>36</td>
+                                <td>36½</td>
+                                <td>225</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>37</td>
+                                <td>37</td>
+                                <td>229</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4½</th>
+                                <td>37½</td>
+                                <td>37½</td>
+                                <td>233</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>38</td>
+                                <td>38</td>
+                                <td>237</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5½</th>
+                                <td>39</td>
+                                <td>38½</td>
+                                <td>241</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>39½</td>
+                                <td>39</td>
+                                <td>246</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6½</th>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>250</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>41</td>
+                                <td>41</td>
+                                <td>254</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7½</th>
+                                <td>41½</td>
+                                <td>41½</td>
+                                <td>258</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>42</td>
+                                <td>42</td>
+                                <td>263</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8½</th>
+                                <td>42½</td>
+                                <td>42½</td>
+                                <td>267</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>43</td>
+                                <td>43</td>
+                                <td>272</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="size-widths size-widths--womens choose-size">
+                        <h3 class="size__heading size__heading--dl"> Golden Shoe widths</h3>
+                        <dl class="size-dl size-dl-womens">
+                            <dt class="size__heading size__heading--dt">Width</dt>
+                            <dd class="size__heading size__heading--dd">Description</dd>
+                            <!--<dt class="size-dl--dark">C</dt><dd class="size-dl--dark">Narrow Fit</dd>-->
+                            <dt class="size-dl--dark">D</dt>
+                            <dd class="size-dl--dark">Standard Fit</dd>
+                            <dt>E</dt>
+                            <dd>Wide Fit</dd>
+                            <dt class="size-dl--dark">EE</dt>
+                            <dd class="size-dl--dark">Extra Wide Fit</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="size-option">
+        <div class="box-selectors" data-selection="Size">
+            <fieldset>
+                <legend class="visuallyhidden">Select size</legend>
+                <div class="box-selectors__wrapper">
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8030" data-type="size" data-prompt-value="3" aria-pressed="false">
+                        <span id="SIZE_8030-label" tabindex="-1">3</span>
+                        <span id="SIZE_8030-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8035" data-type="size" data-prompt-value="3½" aria-pressed="false">
+                        <span id="SIZE_8035-label" tabindex="-1">3½</span>
+                        <span id="SIZE_8035-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8040" data-type="size" data-prompt-value="4" aria-pressed="false">
+                        <span id="SIZE_8040-label" tabindex="-1">4</span>
+                        <span id="SIZE_8040-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8045" data-type="size" data-prompt-value="4½" aria-pressed="false">
+                        <span id="SIZE_8045-label" tabindex="-1">4½</span>
+                        <span id="SIZE_8045-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8050" data-type="size" data-prompt-value="5" aria-pressed="false">
+                        <span id="SIZE_8050-label" tabindex="-1">5</span>
+                        <span id="SIZE_8050-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8055" data-type="size" data-prompt-value="5½" aria-pressed="false">
+                        <span id="SIZE_8055-label" tabindex="-1">5½</span>
+                        <span id="SIZE_8055-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8060" data-type="size" data-prompt-value="6" aria-pressed="false">
+                        <span id="SIZE_8060-label" tabindex="-1">6</span>
+                        <span id="SIZE_8060-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8065" data-type="size" data-prompt-value="6½" aria-pressed="false">
+                        <span id="SIZE_8065-label" tabindex="-1">6½</span>
+                        <span id="SIZE_8065-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8070" data-type="size" data-prompt-value="7" aria-pressed="false">
+                        <span id="SIZE_8070-label" tabindex="-1">7</span>
+                        <span id="SIZE_8070-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8075" data-type="size" data-prompt-value="7½" aria-pressed="false">
+                        <span id="SIZE_8075-label" tabindex="-1">7½</span>
+                        <span id="SIZE_8075-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="size-selected" class="box-elements js-choose-item clickLink"
+                            data-code-value="SIZE_8080" data-type="size" data-prompt-value="8" aria-pressed="false">
+                        <span id="SIZE_8080-label" tabindex="-1">8</span>
+                        <span id="SIZE_8080-stock" tabindex="-1" class="visuallyhidden"></span>
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="product-description">
+    <h2>Product description</h2>
+    <p class="product-description__text product-description__text--restricted" itemprop="description">A shimmering
+        strappy upper and sporty 5cm heel are combined in this must-have summer wedge. The lightweight EVA sole and
+        cushioned Ortholite® footbed offer arch and heel support, whilst a back zip makes for quick and easy foot entry.
+        Perfect for dressing up or keeping it casual. <span class="crossLinks">   
+    </p>
+   
+     
+</div>
+
+<div class="product-info-and-shop">
+    <div class="product-color-size-width">
+        <div class="colour-size-width">
+            <div class="color-size-wrapper">
+                <div class="color-swatch-selector">
+                    <h3 class="color-swatch-selector__title">COLOUR<span
+                            class="color-swatch-selector__selected js-selected-colour">Pewter Metallic</span></h3>
+
+                    <ul class="color-swatch-selector__color-code">
+                        <li class="color-swatch-selector__color-options" colour-name="Black Leather" colour-index="0">
+                            <a class="color-swatch-selector__link" href="/c/Jillian-Rise/p/26149687">
+                                <img src="//clarks.scene7.com/is/image/Pangaea2Build/26149687_W_1?fmt=pjpg&wid=80"
+                                    class="" title="" alt="Black Leather" /></a>
+                        </li>
+                        <li class="color-swatch-selector__color-options selected" aria-current="true"
+                            colour-name="Pewter Metallic" colour-index="1">
+                            <a class="color-swatch-selector__link" href="/c/Jillian-Rise/p/26149815">
+                                <img src="//clarks.scene7.com/is/image/Pangaea2Build/26149815_W_1?fmt=pjpg&wid=80"
+                                    class="" title="" alt="Pewter Metallic" /></a>
+                        </li>
+                        <li class="color-swatch-selector__color-options" colour-name="Blush Leather" colour-index="2">
+                            <a class="color-swatch-selector__link" href="/c/Jillian-Rise/p/26150518">
+                                <img src="//clarks.scene7.com/is/image/Pangaea2Build/26150518_W_1?fmt=pjpg&wid=80"
+                                    class="" title="" alt="Blush Leather" /></a>
+                        </li>
+                    </ul>
+                </div>
+<div class="choose-width clear" role="region" aria-describedby="width-region-label">
+    <h3 class="label" id="width-region-label">
+        Select width</h3>
+    <div id="width-region-error" class="selection-error-message hide" aria-live="assertive"
+        aria-relevant="additions removals">Please select a width</div>
+    <div class="size-option">
+        <div class="box-selectors" data-selection="Fit">
+            <fieldset>
+                <legend class="visuallyhidden">Select width</legend>
+                <label>
+                    <input type="radio" name="fit-selected" class="box-elements js-choose-item clickLink"
+                        data-code-value="FIT_4W" data-type="fit" data-prompt-value="D (Standard)" aria-pressed="false">
+                    <span id="FIT_4W-label" tabindex="-1">A (Standard)</span>
+                    <span id="FIT_4W-stock" tabindex="-1" class="visuallyhidden"></span>
+                </label>
+                <label>
+                    <input type="radio" name="fit-selected" class="box-elements js-choose-item clickLink" data-code-value="FIT_4W"
+                        data-type="fit" data-prompt-value="D (Standard)" aria-pressed="false">
+                    <span id="FIT_4W-label" tabindex="-1">B (Standard)</span>
+                    <span id="FIT_4W-stock" tabindex="-1" class="visuallyhidden"></span>
+                </label>
+                <label>
+                    <input type="radio" name="fit-selected" class="box-elements js-choose-item clickLink" data-code-value="FIT_4W"
+                        data-type="fit" data-prompt-value="D (Standard)" aria-pressed="false">
+                    <span id="FIT_4W-label" tabindex="-1">C (Standard)</span>
+                    <span id="FIT_4W-stock" tabindex="-1" class="visuallyhidden"></span>
+                </label>
+                <label>
+                    <input type="radio" name="fit-selected" class="box-elements js-choose-item clickLink" data-code-value="FIT_4W"
+                        data-type="fit" data-prompt-value="D (Standard)" aria-pressed="false">
+                    <span id="FIT_4W-label" tabindex="-1">D (Standard)</span>
+                    <span id="FIT_4W-stock" tabindex="-1" class="visuallyhidden"></span>
+                </label>
+            </fieldset>
+        </div>
+    </div>
+</div>
+</div>
+
+<%- include('../partials/footer'); %>
