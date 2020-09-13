@@ -2,16 +2,16 @@
 
 <head>
     <title>Cart Page</title>
-   <link rel='stylesheet' type='text/css' href='public/styles.css'>
-<link rel='stylesheet' type='text/css' href='public/styles3.css'>
-        <script src='public/jquery.js'></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+    <link rel='stylesheet' type='text/css' href='public/styles.css'>
+    <link rel='stylesheet' type='text/css' href='public/styles3.css'>
+    <script src='public/jquery.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <hr>
-<br> 
- 
+<br>
+
 <div class='header'>
     <div class='navigation'>
         <div class='navLink'>
@@ -27,19 +27,17 @@
             <a href='../contact'>Contact</a>
         </div>
     </div>
-</div> 
+</div>
 <ul id="myList">
     <div class='cart'>
         <% for(var i =0; i<cartValues.length; i++){ %>
         <div class='item'>
             <div class='itemContent'>
-
                 <img src='public/<%= cartValues[i].image %>'>
                 <div class='listingText'>
                     <h2><%= cartValues[i].title %>: £<%= cartValues[i].price %> </h2>
                 </div>
             </div>
-
             <div class='itemRemove'>
                 <a href='remove/<%= cartValues[i].ID %>'><button>Remove</button></a>
             </div>
@@ -47,7 +45,7 @@
         <% } %>
 </ul>
 <hr>
- 
+
 <br>
 <div class='checkout'>
     <div>
@@ -58,7 +56,6 @@
             <modal>No Items Remaining In Cart
         </h2>
         </modal>
-
         <% } %>
     </div>
     <hr>
