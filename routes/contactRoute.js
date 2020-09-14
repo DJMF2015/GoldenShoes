@@ -63,12 +63,7 @@ app.get('/contact/delete/:id', (req, res) => {
 //   });
 // });
 
-// app.put('/contact/update/:id, function (req, res) {
-//   Person.findByIdAndUpdate(req.params.id, req.body, function (err, response) {
-//     if (err) console.log(("Error in updating person with id " + req.params.id ));
-//     res.json(response);
-//   });
-// });
+ 
 
 
 

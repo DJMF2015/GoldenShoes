@@ -17,7 +17,7 @@ const prod1 = new Product({
     'image': "formal.jpg",
     'price': 130,
     'type': 'Reds',
-    'description': "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    'description': "  these men’s Chelsea boots are the perfect smart casual style. As well as a heel loop tab and elastic panelling for easy on and off, a textile lining and sock offer breathability while a durable rubber sole makes for lasting comfort.",
     'stock': 15
 });
 const prod2 = new Product({
@@ -35,7 +35,7 @@ const prod3 = new Product({
     'image': 'sandal.jpg',
     'price': 80,
     'type': 'Reds',
-    'description': "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    'description': "Taking inspiration from iconic archive styles this has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     'stock': 5
 });
 const prod4 = new Product({
@@ -94,8 +94,8 @@ const prod9 = new Product({
 });
 const prod10 = new Product({
     'ID': 10,
-    'title': 'Womens Trainers ',
-    'image': 'womens_trainer.png',
+    'title': 'Womens Slippers ',
+    'image': 'womens_slippers.png',
     'price': 95,
     'type': 'Others',
     'description': "Perfect for city adventures, these luxe leather lace-ups from our Unstructured collection offer an athletic look with the black upper and contrasting sole made from EVA and rubber for a lightweight and flexible feel.",
