@@ -3,16 +3,18 @@
 #### Date: 06/09/20
 
 ### Problem: Golden Shoe facing declining revenues (in shop) as well as online. Online presence
-needs to be improved by overhaul of website and social media channels. 
+needs to be improved by overhaul of website and social media channels.
+
+![alt text](GoldenShoes.gif 'Golden Shoe')
 
 ### Challenges:
 ● Declining revenue
 ● not mobile responsive
 ● Customer contact limited to phone support line only
-● Website has ‘dated’ layout 
+● Website has ‘dated’ layout
 
 ### Design issues:
-● accessibility, 
+● accessibility,
 ● screen-size,
 ● appearance
 
@@ -34,13 +36,11 @@ but can be used in-store’ only and not online.
 4. Users should be able to choose from a selection of shoe colours; shoe sizes; shoe style.
 5. Users should be able to checkout their items with the total amount correctly displayed.
 6. Users must have the choice to ‘order/buy’ at checkout stage.
-7. Users should be able to ‘filter’ a product by category 
+7. Users should be able to ‘filter’ a product by category
 8. Should have a contact form for customer support.
 9. Users’ social media should be limited to certain parts of a website only....
 
 #### Additional Features (if time)
-● Authentication - secure login/out for individual user
-● Payment options using Paypal/Stripe...
 ● Make website into a PWA (progessive web app)
 
 ### The Task
