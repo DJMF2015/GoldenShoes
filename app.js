@@ -5,13 +5,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressSanitizer = require('express-sanitizer');
-
-// var session = require('express-session');
 const _ = require("lodash"); 
 const ContactRouter = require('./routes/contactRoute.js');
 const ProductRouter = require('./routes/productRoute.js');
- 
- 
+
 const app = express();
  
 app.set('view engine', 'ejs');

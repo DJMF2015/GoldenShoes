@@ -19,7 +19,7 @@
     $(document).ready(function () {
         $("#myInput").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#myList href").filter(function () {
+               $("#myList td" ).filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
@@ -33,7 +33,7 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <!-- 6 -->
-             
+                <li id="products"><a href="/home">Home</a></li>
                 <li id="products"><a href="/products">SHOP</a></li>
                 <li id="about"><a href="/cart">CART</a></li> 
                 <li id="contact"><a href="/contact">CONTACT US</a></li>

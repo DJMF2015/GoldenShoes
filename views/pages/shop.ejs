@@ -4,10 +4,9 @@
   
         <link rel='stylesheet' type='text/css' href='../public/styles3.css'>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
-  <script src='../public/jquery.js'></script>  
+  <script src='../public/script.js'></script>  
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
-<script src='../public/store.js'></script>
 </head>
 <div class='header'>
     <div class='navigation'>
@@ -39,21 +38,22 @@
                 </tr>
             </thead>
             <tbody>
+               
                 <%  items.forEach(function(item){ %>
 
                 <tr>
-                    <td><%=item.title%></td>
+                    <td> <%=item.title%></td>
                   
                    <td> <div class="card" style="width: 18rem;">
       
                             <img src='public/<%= item.image %>' class="card-img-top" alt="shoe">
                         <div class="card-body">
-                            <p class="card-text">View theBbest Shoes Goldens Shoes has to Offer!</p>
+                            <p class="card-text">View the Best Shoes Goldens Shoes has to Offer!</p>
                         </div></td>
                     </div>
                     <td><%=item.price%></td>
                     <td><%=item.type%></td>
-                 <td> <%=item.description.slice(0,101 ) + '..........!'%>  
+                 <td> <%=item.description.slice(0,30 ) + '....!'%>  
                
                     <td><%=item.stock%></td>
 
@@ -71,6 +71,7 @@
                     </td>
                 </tr>
                 <% }) %>
+            
 </ul>
             </tbody>
         </table>
