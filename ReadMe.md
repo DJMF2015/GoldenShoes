@@ -11,7 +11,7 @@ needs to be improved by overhaul of website and social media channels.
 ### To Install & Run app -
 - Open up terminal. Enter <code>npm install --save</code>
 - Enter <code>mongod</code> to run mongo shell
-- Finally, open a new tab (while mongod remains running) Type: <code>nodemon app.js</oode>
+- Finally, open a new tab (while mongod remains running) Type: <code>nodemon app.js</code>
 - Open web-browser & turn to 'localhost://8080'
 
 ### Challenges:
