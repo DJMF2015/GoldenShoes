@@ -335,7 +335,7 @@ app.post('/chargePaypal', function (req, res) {
   var chargeAmount = 5;
 
   for (var i = 0; i < items.length; i++) {
-    for (var count = 0; c < defaultItems.length; count++) {
+    for (var count = 0; count < defaultItems.length; count++) {
       if (items[i] == defaultItems[count].ID) {
         chargeAmount = chargeAmount + defaultItems[count].price;
       }
@@ -357,15 +357,15 @@ app.post('/chargePaypal', function (req, res) {
           'name': 'GoldenShoes Sale',
           'sku': `${items}`,
           'price': `${chargeAmount}`,
-          'currency': 'GDP',
+          'currency': 'USD',
           'quantity': 1
         }]
       },
       'amount': {
-        'currency': 'GDP',
+        'currency': 'USD',
         'total': `${chargeAmount}`
       },
-      'description': 'Sale of shoess(s)'
+      'description': 'Sale of shoes(s)'
     }]
   };
 

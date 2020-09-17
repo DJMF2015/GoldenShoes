@@ -37,11 +37,11 @@ body{
 }
 #searchInput   {
     margin: auto;
-    width: 200px;
+  
 }
 .footer {
-    position: fixed;
-    overflow: auto;
+  position: fixed;
+  overflow: auto;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
@@ -59,12 +59,11 @@ table {
 width: 100%; 
   border-collapse: collapse; 
   text-shadow: 0 0 1px white;
-    font-style: sans-serif;
-    font-size: 20px;
+  font-style: sans-serif;
+  font-size: 18px;
 }
 th, td, tr {
-  /* border: 1px solid #ccc; */
-  /* border: collapse; */
+ 
   flex-wrap: wrap;
   padding: 15px;
   padding-left: 10px;
