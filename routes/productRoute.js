@@ -335,9 +335,9 @@ app.post('/chargePaypal', function (req, res) {
   var chargeAmount = 5;
 
   for (var i = 0; i < items.length; i++) {
-    for (var c = 0; c < defaultItems.length; c++) {
-      if (items[i] == defaultItems[c].ID) {
-        chargeAmount = chargeAmount + defaultItems[c].price;
+    for (var count = 0; c < defaultItems.length; count++) {
+      if (items[i] == defaultItems[count].ID) {
+        chargeAmount = chargeAmount + defaultItems[count].price;
       }
     }
   }
@@ -354,18 +354,18 @@ app.post('/chargePaypal', function (req, res) {
     'transactions': [{
       'item_list': {
         'items': [{
-          'name': 'eCommerce Sale',
+          'name': 'GoldenShoes Sale',
           'sku': `${items}`,
           'price': `${chargeAmount}`,
-          'currency': 'USD',
+          'currency': 'GDP',
           'quantity': 1
         }]
       },
       'amount': {
-        'currency': 'USD',
+        'currency': 'GDP',
         'total': `${chargeAmount}`
       },
-      'description': 'Sale of Color(s)'
+      'description': 'Sale of shoess(s)'
     }]
   };
 
