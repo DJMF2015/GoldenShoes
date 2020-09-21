@@ -15,7 +15,7 @@ $(document).ready(function () {
 					var img = data.products[i].image;
 					var title = data.products[i].title;
 					var price = data.products[i].price;
-					var price = data.products[i].type;
+					var type = data.products[i].type;
 					var ID = data.products[i].ID;
 
 					$('.productsContainer').append(`
@@ -29,6 +29,7 @@ $(document).ready(function () {
 							<div class='listingPrice'>
 								<p>$${price}</p>
 							</div>
+							 
 							<div class='listingButtons'>
 								<a href="buyNow/${ID}">
 									<button id="buyNow">Buy it Now</button>

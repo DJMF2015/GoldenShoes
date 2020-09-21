@@ -1,10 +1,7 @@
 const paypal = require('paypal-rest-sdk');
-const mongoose = require('mongoose')
 const express = require('express');
 var Product = require('../models/product');
-
-// const cookieParser = require('cookie-parser');
-const app = express();
+const router = express.Router(); 
 
 paypal.configure({
   'mode': 'sandbox',
@@ -117,18 +114,17 @@ const prod11 = new Product({
 
 const defaultItems = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10, prod11];
 
-// find post and insert
+// find item and insert
 
 
-app.get("/", function (req, res) {
+router.get("/", function (req, res) {
 
   Product.find({}, function (err, foundItems) {
     var cookieValues = req.cookies;
     if (foundItems.length === 0) {
 
       Product.insertMany(defaultItems, function (err) {
-        if (err) {
-          // defaultItems.save();
+        if (err) { 
           console.log(err);
         } else  {
        
@@ -144,7 +140,7 @@ app.get("/", function (req, res) {
 
  
 //SHOP MAIN PAGE
-app.get('/shop', function (req, res) {
+router.get('/shop', function (req, res) {
 
   Product.find({}, function (err, items) {
     res.render("pages/shop", {
@@ -155,7 +151,7 @@ app.get('/shop', function (req, res) {
 
 
 //VIEW 1 SINGLE ITEM items/
-app.get("/singleItem/:id", function (req, res) {
+router.get("/singleItem/:id", function (req, res) {
 
   const requestedPostId = req.params.id;
 
@@ -168,7 +164,7 @@ app.get("/singleItem/:id", function (req, res) {
 
 
 //DELETE ITEM IN SHOP
-app.get('/shop/delete/:id', (req, res) => {
+router.get('/shop/delete/:id', (req, res) => {
   Product.findByIdAndRemove(req.params.id, function (err, response) {
     if (err) console.log("Error in deleting record id " + req.params.id);
     else res.redirect('/shop');
@@ -178,7 +174,7 @@ app.get('/shop/delete/:id', (req, res) => {
 
 
 //ALL PRODUCTS
-app.get('/products', function (req, res) {
+router.get('/products', function (req, res) {
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
 
@@ -191,7 +187,7 @@ app.get('/products', function (req, res) {
 });
 
 //GET 1 PRODUCT
-app.get('/products/:ID', function (req, res) {
+router.get('/products/:ID', function (req, res) {
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
   var ID = req.sanitize(req.params.ID);
@@ -211,7 +207,7 @@ app.get('/products/:ID', function (req, res) {
 });
 
 //  BUY BUTTON
-app.get('/buyNow/:ID', function (req, res) {
+router.get('/buyNow/:ID', function (req, res) {
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
   var ID = req.sanitize(req.params.ID);
@@ -234,7 +230,7 @@ app.get('/buyNow/:ID', function (req, res) {
 });
 
 //CART CHECKOUT AND TOTAL
-app.get('/cart', function (req, res) {
+router.get('/cart', function (req, res) {
 
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
@@ -269,7 +265,7 @@ app.get('/cart', function (req, res) {
 
 
 //AJAX route
-app.get('/product/:type', function (req, res) {
+router.get('/product/:type', function (req, res) {
   var type = req.sanitize(req.params.type);
   var tempArray = [];
 
@@ -283,7 +279,7 @@ app.get('/product/:type', function (req, res) {
 });
 
 // ADD TO CART
-app.get('/addCart/:ID', function (req, res) {
+router.get('/addCart/:ID', function (req, res) {
   var ID = req.sanitize(req.params.ID);
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
@@ -307,7 +303,7 @@ app.get('/addCart/:ID', function (req, res) {
   }
 });
 //REMOVE 1 ITEM FROM CART
-app.get('/remove/:ID', function (req, res) {
+router.get('/remove/:ID', function (req, res) {
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
   var cookieArray = JSON.parse(cookieCart);
@@ -328,7 +324,7 @@ app.get('/remove/:ID', function (req, res) {
 
 
 
-app.post('/chargePaypal', function (req, res) {
+router.post('/chargePaypal', function (req, res) {
   var items = req.sanitize(req.body.description);
   items = JSON.parse(items);
   //shipping tax (£5.00)
@@ -384,4 +380,4 @@ app.post('/chargePaypal', function (req, res) {
 
 });
 
-module.exports = app;
+module.exports = router;

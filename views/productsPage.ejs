@@ -23,10 +23,10 @@
 
 		<div class='navLink'>
 			<a href='cart'>Cart <em><% for (var i = 0; i < cartNumb.length;i++){ %>
-					<% if(cartNumb != 0){ %>
+				  <% if(cartNumb != 0){ %> 
 					<%= cartNumb.ID.length %>
 					<% } %>
-					<% } %>
+		 		 <% } %> 
 				</em></a>
 		</div>
 
@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<div class='colors'>
+ <div class='.colors'> 
 	<div class='buttonsContainer'>
 		<button id='reds'>Reds</button>
 		<button id='greens '>Greens</button>
@@ -53,6 +53,7 @@
 						<p><%= products[i].title %></p>
 					</a>
 				</div>
+					
 				<div class='listingPrice'>
 					<a href='products/<%= products[i].ID %>'>
 						<p>£<%= products[i].price %></p>
