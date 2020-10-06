@@ -1,0 +1,143 @@
+
+.container-fluid {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+body{
+  font-family: 'Ubuntu';font-size: 15px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+/* navbar Styling */
+.navbar-brand {
+  font-size: 2.5rem !important;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-link{
+  font-size: 1.2rem !important;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+}
+.footer-padding {
+    padding-bottom: 60px;
+    bottom: 0;
+}
+#searchInput   {
+    margin: auto;
+  
+}
+.footer {
+  position: fixed;
+  overflow: auto;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	background-color: silver;
+}
+.footer p {
+    margin-top: 15px;
+    overflow: auto;
+	font-size: 15px;
+    color: #fff;
+}
+
+table {
+width: 100%; 
+  border-collapse: collapse; 
+  text-shadow: 0 0 1px white;
+  font-style: sans-serif;
+  font-size: 18px;
+}
+th, td, tr {
+ 
+  flex-wrap: wrap;
+  padding: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+
+}
+table.alt tr:nth-child(even) {
+  background-color: #eee;
+}
+table.alt tr:nth-child(odd) {
+  background-color: #fff;
+}
+ 
+/* 
+Media queries: TAB:
+This query will take effect for any screen smaller than 760px
+ 
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+        display: block; 
+        font-size: 20px;
+        font-style: sans-serif;
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+}
+.btn-primary {
+  margin-left: 40px ;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  position: absolute;
+  display: inline-block;
+}
+@media(max-width: 990px){
+  .title-image{
+    transform: rotate(0deg);
+    position: static;
+    margin-right:3rem;
+    width: 50%;
+  }
+  #title{
+    text-align: center !important;
+  }
+}
