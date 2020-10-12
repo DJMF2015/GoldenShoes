@@ -1,5 +1,4 @@
 const port = 8080;
-const http = require('http');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -45,10 +44,9 @@ app.use((req, res) => {
   res.status(404).send('<h1>Sorry, Page not found. Have you checked the correct URL ?');
 });
 
-const server = http.createServer(app);
  
 
-app.listen(port, server, function () {
+app.listen(port, function () {
   console.log("server is up and running at port " + port);
 });
 
