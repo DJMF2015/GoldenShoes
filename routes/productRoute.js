@@ -15,7 +15,7 @@ const prod1 = new Product({
   'image': "formal.jpg",
   'price': 130,
   'type': 'Reds',
-  'description': "  these men’s Chelsea boots are the perfect smart casual style. As well as a heel loop tab and elastic panelling for easy on and off, a textile lining and sock offer breathability while a durable rubber sole makes for lasting comfort.",
+  'description': "These men’s Chelsea boots are the perfect smart casual style. As well as a heel loop tab and elastic panelling for easy on and off, a textile lining and sock offer breathability while a durable rubber sole makes for lasting comfort.",
   'stock': 15
 });
 const prod2 = new Product({
@@ -82,7 +82,7 @@ const prod8 = new Product({
   'stock': 8
 });
 const prod9 = new Product({
-  'ID': 8,
+  'ID': 9,
   'title': 'Formal Plain',
   'image': 'formal.jpg',
   'price': 140,
@@ -115,7 +115,6 @@ const prod11 = new Product({
 const defaultItems = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10, prod11];
 
 // find item and insert
-
 
 router.get("/", function (req, res) {
 
@@ -213,7 +212,7 @@ router.get('/buyNow/:ID', function (req, res) {
   var ID = req.sanitize(req.params.ID);
 
   if (!cookieCart) {
-    //array to strore items
+    //array to store items
     var cookieArray = [];
     cookieArray.push(ID);
     var cookieStringArray = JSON.stringify(cookieArray);
@@ -229,9 +228,12 @@ router.get('/buyNow/:ID', function (req, res) {
   res.redirect('../cart');
 });
 
+
+// put request for stock level To-Do
+
 //CART CHECKOUT AND TOTAL
 router.get('/cart', function (req, res) {
-
+  // res.clearCookie(req.cookies)
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
 
@@ -248,7 +250,7 @@ router.get('/cart', function (req, res) {
         }
       }
     }
-    //add price to previous TOTAL
+    //Add price to previous TOTAL
     var cartTotal = 0;
     for (var i = 0; i < tempCartArray.length; i++) {
       cartTotal = cartTotal + tempCartArray[i].price;
@@ -264,7 +266,7 @@ router.get('/cart', function (req, res) {
 });
 
 
-//AJAX route
+//AJAX products route
 router.get('/product/:type', function (req, res) {
   var type = req.sanitize(req.params.type);
   var tempArray = [];
@@ -277,6 +279,45 @@ router.get('/product/:type', function (req, res) {
 
   res.send({ products: tempArray });
 });
+
+
+
+// REMOVE FROM CART
+// router.get('/removeCart/:ID', function(req, res, err){
+  // var Id = req.sanitize(req.params.ID);
+  // var cookieValue = req.cookies;
+  // var cookieCart = req.sanitize(cookieValue.cart);
+
+  // if (!cookieCart) {
+  //   var cookieArray = [];
+  //   cookieArray.push(Id);
+  //   var cookieStringArray = JSON.stringify(cookieArray);
+
+  //   res.cookie('cart', cookieStringArray);
+  //   res.send({ cartNumb: 1 });
+  // } else {
+  //   var cartValue = cookieCart;
+  //   var cookieArray = JSON.parse(cartValue);
+  //   cookieArray.push(Id);
+  //   var cookieStringArray = JSON.stringify(cookieArray);
+
+  //   res.clearCookie('cart');
+  //   res.cookie('cart', cookieStringArray);
+  //   res.send({ cartNumb: cookieArray.length });
+  // }
+//   var cookieValue = req.cookies;
+//   var cookieCart = req.sanitize(cookieValue.cart);
+//   var cookieArray = JSON.parse(cookieCart);
+//   var IDremove = req.sanitize(req.params.ID);
+
+//   for (var i = 0; i < cookieArray.length; i++) {
+//     if (cookieArray[i] == IDremove) {
+//       cookieArray.splice(i, 1);
+//       break;
+
+//     }
+//   }
+// });
 
 // ADD TO CART
 router.get('/addCart/:ID', function (req, res) {
@@ -302,8 +343,9 @@ router.get('/addCart/:ID', function (req, res) {
     res.send({ cartNumb: cookieArray.length });
   }
 });
+
 //REMOVE 1 ITEM FROM CART
-router.get('/remove/:ID', function (req, res) {
+router.get('/removeCart/:ID', function (req, res, err) {
   var cookieValue = req.cookies;
   var cookieCart = req.sanitize(cookieValue.cart);
   var cookieArray = JSON.parse(cookieCart);
@@ -319,7 +361,8 @@ router.get('/remove/:ID', function (req, res) {
   var stringArray = JSON.stringify(cookieArray);
   res.clearCookie('cart');
   res.cookie('cart', stringArray);
-  res.redirect('/cart');
+  // res.render('../productsPage', { cart: cookieCart, cartNumb: cookieArray.length});
+  res.redirect('/products');
 });
 
 

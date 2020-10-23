@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressSanitizer = require('express-sanitizer');
-const _ = require("lodash"); 
 const ContactRouter = require('./routes/contactRoute.js');
 const ProductRouter = require('./routes/productRoute.js');
  
@@ -19,8 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ContactRouter);
 app.use(ProductRouter);
 
-//setup and establish connection to mongodb client and mongoose orm
+//setup and configure connection to mongodb driver & Mongoose ORM
 mongoose.connect('mongodb://localhost/goldenshoeDB', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.Promise = global.Promise;
 mongoose.connection.once('open', function () {
   console.log('successfully connected to DB...');
 }).on('error', function (err) {
@@ -34,19 +34,26 @@ app.get('/', function (req, res) {
   res.render('home');
 });
 
+// app.get('/index', function(req,res){
+//   res.render('index')
+// });
+
 app.get('/home', function (req, res) {
   res.render('home');
 });
 
-
 // ERROR PAGE
 app.use((req, res) => {
-  res.status(404).send('<h1>Sorry, Page not found. Have you checked the correct URL ?');
+  res.status(404).send('<h1 style="color:blue; margin-top: 5em;"><center>Sorry, Page not found. Have you checked the correct URL ?<center></h1>');
 });
-
  
-
-app.listen(port, function () {
-  console.log("server is up and running at port " + port);
+// error handling middleware
+app.use(function (err, req, res, next) {
+  console.log(err); // to see properties of message in our console
+  res.status(422).send({ error: err.message });
 });
+
+app.listen(port, () => {
+    console.log(`server is up and running at port: ${port}`);
+  });
 

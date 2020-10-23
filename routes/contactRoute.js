@@ -1,14 +1,18 @@
 const express = require('express');
 var Contact = require('../models/contact');
-const { Router } = require('express');
 const router = express.Router();
 
 router.get('/submission', function (req, res) {
 
     Contact.find({}, function (err, contacts) {
-        res.render("submissionPage", {
-            contacts: contacts
-        });
+        if (!err) {
+            res.render("submissionPage", {
+                contacts: contacts
+
+            });
+        } else {
+
+        }
     });
 });
 
@@ -16,6 +20,7 @@ router.get('/submission', function (req, res) {
 //compose User contact page
 router.get('/contact', function (req, res) {
     res.render("pages/contact");
+    
 });
 
 router.post("/contact", function (req, res) {
@@ -33,22 +38,13 @@ router.post("/contact", function (req, res) {
         }
     });
 });
-
-//DELETE A USERS'S CONTACT
-router.get('/contact/delete/:id', (req, res) => {
-  Contact.findByIdAndRemove(req.params.id, (err) => {
-    if (!err) {
-      res.redirect('/submission');
-    }
-    else { console.log('Error in deleting contact details:' + err); }
-  });
+//find one user contact
+ 
+// delete a user contact from the db
+router.get('/contact/delete/:id', function (req, res, next) {
+    Contact.findByIdAndRemove({ _id: req.params.id }).then(function () {
+         res.redirect('/submission');
+    }).catch(next);
 });
-
-
  
- 
-
-
-
-
 module.exports = router;

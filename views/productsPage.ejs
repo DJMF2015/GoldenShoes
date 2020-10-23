@@ -1,32 +1,30 @@
-<%- include('./partials/header'); %>
+  <%- include('./partials/header'); %> 
 
 <head>
 	<title>Products Page</title>
 	<link rel='stylesheet' type='text/css' href='public/css/styles.css'>
        
-	<script src='public/js/script.js'></script>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
- 
+
 <div class='header'>
 	<div class='navigation'>
-	<div class='navLink'>
-		<a href='home'>Home</a>
-	</div>
 		<div class='navLink'>
-			<a href='products'>Shoes</a>
+			<a href='/home'>Home</a>
 		</div>
 		<div class='navLink'>
-			<a href='shop'>View Range</a>
+			<a href='/products'>Shoes</a>
+		</div>
+		<div class='navLink'>
+			<a href='/shop'>View Range</a>
 		</div>
 
 		<div class='navLink'>
-			<a href='cart'>Cart <em><% for (var i = 0; i < cartNumb.length;i++){ %>
-				  <% if(cartNumb != 0){ %> 
-					<%= cartNumb.ID.length %>
-					<% } %>
-		 		 <% } %> 
+			<a href='/cart'>Cart <em>
+					<%= cartNumb %>
+	
 				</em></a>
 		</div>
 
@@ -34,7 +32,7 @@
 	</div>
 </div>
 
- <div class='colors'> 
+<div class='colors'>
 	<div class='buttonsContainer'>
 		<button id='reds'>Reds</button>
 		<button id='greens '>Greens</button>
@@ -53,7 +51,7 @@
 						<p><%= products[i].title %></p>
 					</a>
 				</div>
-					
+
 				<div class='listingPrice'>
 					<a href='products/<%= products[i].ID %>'>
 						<p>£<%= products[i].price %></p>
@@ -62,11 +60,16 @@
 					<a href="buyNow/<%= products[i].ID %>">
 						<button id="buyNow">Buy it Now</button>
 					</a>
-					<button id='addCart' value='<%= products[i].ID %>'>Add to Cart</button>
+					<button id='addCart' value='<%= products[i].ID %>' >+</button><br>
+			 
+					<a href='removeCart/<%= products[i].ID %>'><button  >-</button></a>
+					<!-- TO-DO Create +/- Button for Qty.
+					make post/put request of Qty on submission of (buy) btn to db. ie) stock - quantity  -->
 				</div>
 			</div>
 			<% } %>
 		</div>
 </div>
 </ul>
+	<script src='public/js/script.js' ></script>
 <%- include('./partials/footer'); %>
