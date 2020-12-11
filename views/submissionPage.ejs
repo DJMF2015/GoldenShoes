@@ -3,9 +3,10 @@
 <head>
     <title>Submission Details</title>
     <link rel='stylesheet' type='text/css' href='public/css/styles.css'>
+    
 
-  
 </head>
+<h3><a class="btn btn-secondary" href="/contact"><i class="fa fa-plus"></i> Create New</a> Contact Details</h3>
 <div class='header'>
     <div class='navigation'>
 
@@ -13,7 +14,7 @@
             <a href='/products'>Shoes</a>
         </div>
         <div class='navLink'>
-        <a href='/home'>Home</a>
+            <a href='/home'>Home</a>
         </div>
         <div class='navLink'>
             <a href='/contact'>Contact</a>
@@ -22,7 +23,6 @@
 </div>
 <br><br><br><br><br><br><br><br>
 <ul class=myList>
-    <h3><a class="btn btn-secondary" href="/contact"><i class="fa fa-plus"></i> Create New</a> Your Messages</h3>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -34,24 +34,27 @@
             </tr>
         </thead>
         <tbody>
-            <%  contacts.forEach(function(item){ %>
+            <%  contacts.forEach(function(contact){ %>
 
             <tr>
                 <div id="contact">
-                <td><%=item.name%></td>
-                <td><%=item.email%></td>
-                <td><%=item.subject%></td>
-                <td><%=item.comment%></td>
-                <td>
+                    <td><%=contact.name%></td>
+                    <td><%=contact.email%></td>
+                    <td><%=contact.subject%></td>
+                    <td><%=contact.comment%></td>
+                    <td>
 
-                    <a href="/contact/delete/<%=item._id%>"
-                        onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg"
-                            aria-hidden="true"></i> </a>
-                </td>
-            </tr>
-            <% }) %>
-            </div>
-        </ul>
-        </tbody>
-    </table>
+<a href="/contact/delete/<%=contact._id%>" onclick="return confirm('Are you sure to delete this record ?');"><i
+        class="fa fa-trash fa-lg" aria-hidden="true"></i> Delete </a>
+        <br>
+ 
+ <a href='/contact/<%=contact._id%>' style=" position: relative; top: 15px;"><i
+            class="fas fa-pencil-alt fa-2x"></i> Edit </a> 
+ 
+</tr>
+<% }) %>
+</div>
+</ul>
+</tbody>
+</table>
 <%- include('./partials/footer'); %>
