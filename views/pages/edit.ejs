@@ -1,95 +1,79 @@
 <%- include('../partials/header'); %>
 
-<head>
-    <title>Further Information Page</title>
+    <head>
+        <title>Further Information Page</title>
 
-    <link rel='stylesheet' type='text/css' href='../public/css/styles.css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' type='text/css' href='../public/css/styles3.css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='../public/js/script.js'></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' type='text/css' href='../public/css/styles.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' type='text/css' href='../public/css/styles3.css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='../public/js/script.js'></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
+    </head>
 
 <div class='header'>
     <div class='navigation'>
+
         <div class='navLink'>
-
-            <a href='../cart'>Cart</a>
+            <a href='products'>Shoes</a>
         </div>
         <div class='navLink'>
-            <a href='../products'>Shoes</a>
+            <a href='shop'>View Range</a>
         </div>
-        <!-- <div class='navLink'>
-            <a href='../contact'>Contact</a>
-        </div> -->
-    </div>
-</div>
-<div class='colorsBody'>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Subject</th>
-                <th>Comment</th>
-
-
-            </tr>
-        </thead>
-
-    </table>
-
-    <div class='midContent'>
-        <div class='contactWrapper'>
-
-            <form method="POST" action='/contact/<%= contact._id%>'>
-                <div class="form-group">
-                    <!-- <div class='standardText'>Name</div><label>Name</label>
-                    <input class="form-control" type="text" name="name" placeholder="enter title..."
-                        value='<%= contact.name%>'> -->
-                    <br><br>
-
-                    <!-- <div class='standardText'>Email</div><label for="contact">Email</label>
-                    <div class='email'>
-                        <input class="form-control" rows=5 cols=20 value="" type="text" name="email"
-                            placeholder="enter message..." value='<%= contact.email%>'>
-                        </input> -->
-                </div><br><br>
-                <div class='name'>
-                    <b><label for="first_name" class="form-control"> Name:</label></b>
-                    <input type="text" name="name" id="name" value='<%= contact.name%>' />
-                </div>
-                <div class='email'>
-                    <b><label for="last_name" class="form-control">Email:</label></b>
-                    <input type="text" name="email" id="email" value='<%= contact.email%>' />
-                </div>
-                <div class='subject'>
-                    <div class=' standardText'>Subject</div>
-                    <textarea rows='5' cols='55' placeholder='Subject' name='subject'
-                        style="width: 531px; height: 169px;" value='<%= contact.subject%>'></textarea>
-                </div>
-        </div><br><br>
-        <div class='comment'>
-            <div class='standardText'>Enter your comment below</div>
-
-            <textarea rows='10' cols='55' name='comment' style="width: 531px; height: 169px;"
-                value='<%= contact.comment%>'></textarea>
+        <div class='navLink'>
+            <a href='contact'>Contact</a>
         </div>
-        <br><br>
     </div>
+</div>
 
-    <div class="form-group">
-        <button type="submit" name="button" class="btn btn-info" href="/contact"
-            style="color: black; margin: 0px;  width: 50% ;">
-            <!-- <i class="fa fa-database"></i>Submit </button> -->
-        <i class="fa fa-database"></i> Submit</button>
-        <a class="btn btn-info" style="color: black; width:40%;" href="/submission"><i class=" fa fa-list-alt"></i> View
-            All</a>
+        <div class='midContent'>
+            <div class='contactWrapper'>
+
+                <form method="POST" action='/contact/<%= contact._id%>'>
+                    <div class="form-group">
+                        <div class='standardText'>Name</div><label>Name</label>
+                        <input class="form-control" type="text" name="name" placeholder="enter name..."
+                            value='<%= contact.name%>'>
+
+                        <div class='standardText'>Email</div><label for="contact">Email</label>
+                        <div class='email'>
+                            <input class="form-control" rows=5 cols=20 type="email" name="email"
+                                placeholder="enter email..." value='<%= contact.email%>'>
+                            </input>
+                        </div>
+                        <!-- <div class='name'>
+                    <b><label for="first_name" > Name:</label></b>
+                    <input type="text" name="name"   value='<%= contact.name%>' placeholder="enter name..."/>
+                </div> -->
+                        <!-- <div class='email'>
+                    <b><label for="last_name">Email:</label></b>
+                    <input type="text" name="email" value='<%= contact.email%>' placeholder="enter email..."/>
+                </div> -->
+                        <div class="form-group">
+                            <div class=' standardText'>Enter Purpose of Query</div>
+                            <input value='<%= contact.subject%>' name='subject' rows='5' cols='55'
+                                placeholder='enter about subject'></input>
+                        </div>
+                    </div><br>
+                    <div class="form-group">
+                        <div class='standardText'>Enter your comment below</div>
+                        <input value='<%= contact.comment%>' name='comment' rows='10' cols='55'
+                            placeholder='enter comment...'></input>
+                    </div>
+
+            <!-- </div> -->
+
+            <!-- <div class="form-group"> -->
+
+                <button type="submit" name="button" class="btn btn-info" href="/contact"
+                    style="color: black; margin: 10px; float: left; padding: 10px;  width: 100% ; ">  </h1>
+                    <i class="fa fa-database"></i>Submit </button>
+
+                <a class="btn btn-info" style="color: black; margin: 10px; padding: 10px; width:100%;" href="/submission"><i
+                        class=" fa fa-list-alt"></i> View All</a>
+                </form>
+            <!-- </div> -->
+        </div>
     </div>
-
-    </form>
-</div>
-</div>
 <%- include('../partials/footer'); %>

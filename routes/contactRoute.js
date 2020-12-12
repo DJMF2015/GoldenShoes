@@ -2,7 +2,7 @@ const express = require('express');
 let Contact = require('../models/contact');
 const router = express.Router();
 
-// Add Route
+// ADD Show All Route
 router.get('/submission', function (req, res) {
     Contact.find({}, function (err, contacts) {
         if (!err) {
@@ -10,13 +10,17 @@ router.get('/submission', function (req, res) {
                 contacts: contacts
             });
         } else {
-
+            console.log(err)
         }
     });
 });
 
+// Load Contact Form
+router.get('/contact', function (req, res) {
+    res.render("pages/contact");
+});
 
-// Add Submit POST Route
+// ADD Submit POST Route
 router.post("/contact", function (req, res) {
     var contact = new Contact({
         name: req.body.name,
@@ -25,7 +29,7 @@ router.post("/contact", function (req, res) {
         comment: req.body.comment
     });
 
-    //save users contact details
+    //SAVE USER contact into mongodb
     contact.save(function (err) {
         if (!err) {
             res.redirect("/submission")
@@ -33,7 +37,7 @@ router.post("/contact", function (req, res) {
     });
 });
 
-// Load Edit Form
+// Load Edit Form for Single Contact
 router.get('/contact/:id', function (req, res) {
     Contact.findById(req.params.id, function (err, contact) {
         if (err) {
@@ -41,12 +45,10 @@ router.get('/contact/:id', function (req, res) {
             return res.redirect('/');
         }
         res.render('pages/edit', {
-            name: 'Edit Contact Details',
             contact: contact
         });
     });
 });
-
 // Update Submit POST Route
 // router.post('contact/:id', function (req, res ) {
 //     let contact = {};
@@ -61,15 +63,14 @@ router.get('/contact/:id', function (req, res) {
 //         res.redirect('/submission');
 //     }) ;
 // });
-router.post('/contact/:id', function (req, res, next) {
+
+//UPDATE CONTACT
+router.post('/contact/:id', function (req, res) {
     Contact.findByIdAndUpdate(req.params.id, req.body, function (err, response) {
         if (err) res.json({ message: "Error in updating contact with id " + req.params.id });
-
         res.redirect('/submission')
-    }) 
+    })
 });
-
-// });
 
 // DELETE CONTACT 
 router.get('/contact/delete/:id', function (req, res, next) {
@@ -78,31 +79,6 @@ router.get('/contact/delete/:id', function (req, res, next) {
     }).catch(next);
 });
 
-// Load Contact Form
-router.get('/contact', function (req, res) {
-    res.render("pages/contact");
-
-});
 
 
-// Get Single Contact
-// router.get('/contact/:id', function (req, res) {
-//     Contact.findById(req.params.id), function (req, res) {
-//         res.render('pages/contact', {
-//             contact: contact,
-//             name: name
-//         });
-//     };
-// });
-
-// Add Route
-router.get('/submission', (req, res) => {
-    db.collection('contacts').find().toArray()
-    .then(results =>{
-        console.log(results)
-    })
-    .catch(error => console.error(error))
-})
-
- 
 module.exports = router;
