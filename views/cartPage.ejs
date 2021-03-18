@@ -1,16 +1,14 @@
-<%- include('./partials/header'); %>
+ <%- include('./partials/header'); %> 
 
 <head>
     <title>Cart Page</title>
     <link rel='stylesheet' type='text/css' href='public/css/styles.css'>
     <link rel='stylesheet' type='text/css' href='public/css/styles3.css'>
-    <script src='public/js/script.js'></script>
+    <script src='public/js/script.js' defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
-<hr>
-<br>
 
 <div class='header'>
     <div class='navigation'>
@@ -28,6 +26,7 @@
         </div>
     </div>
 </div>
+
 <ul id="myList">
     <div class='cart'>
         <% for(var i =0; i<cartValues.length; i++){ %>
@@ -44,8 +43,8 @@
         </div>
         <% } %>
 </ul>
-<hr>
-
+<hr> 
+<!-- Add boolean logic here to check if defaultItem is == ID and if so print cartNumb -->
 <br>
 <div class='checkout'>
     <div>

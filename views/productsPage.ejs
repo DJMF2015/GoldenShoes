@@ -1,9 +1,9 @@
-  <%- include('./partials/header'); %> 
+<%- include('./partials/header'); %>
 
 <head>
 	<title>Products Page</title>
 	<link rel='stylesheet' type='text/css' href='public/css/styles.css'>
-       
+
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,25 +12,28 @@
 <div class='header'>
 	<div class='navigation'>
 		<div class='navLink'>
-			<a href='/home'>Home</a>
+			<a href='home'>Home</a>
 		</div>
 		<div class='navLink'>
-			<a href='/products'>Shoes</a>
+			<a href='products'>Shoes</a>
 		</div>
 		<div class='navLink'>
-			<a href='/shop'>View Range</a>
+			<a href='shop'>View Range</a>
 		</div>
 
 		<div class='navLink'>
-			<a href='/cart'>Cart <em>
-					<%= cartNumb %>
-	
+			<a href='cart'>Cart <em><% for (var i = 0; i < cartNumb.length;i++){ %>
+					<% if(cartNumb != 0){ %>
+					<%= cartNumb.ID.length %>
+					<% } %>
+					<% } %>
 				</em></a>
 		</div>
 
 
 	</div>
 </div>
+
 
 <div class='colors'>
 	<div class='buttonsContainer'>
@@ -60,16 +63,13 @@
 					<a href="buyNow/<%= products[i].ID %>">
 						<button id="buyNow">Buy it Now</button>
 					</a>
-					<button id='addCart' value='<%= products[i].ID %>' >+</button><br>
-			 
-					<a href='removeCart/<%= products[i].ID %>'><button  >-</button></a>
-					<!-- TO-DO Create +/- Button for Qty.
-					make post/put request of Qty on submission of (buy) btn to db. ie) stock - quantity  -->
+					<button id='addCart' value='<%= products[i].ID %>'>Add to Cart</button>
 				</div>
 			</div>
 			<% } %>
 		</div>
 </div>
 </ul>
-	<script src='public/js/script.js' ></script>
+
+<script src='public/js/script.js'></script>
 <%- include('./partials/footer'); %>
