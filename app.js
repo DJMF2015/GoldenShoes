@@ -6,10 +6,7 @@ const mongoose = require('mongoose');
 const expressSanitizer = require('express-sanitizer');
 const ContactRouter = require('./routes/contactRoute.js');
 const ProductRouter = require('./routes/productRoute.js');  
-const OrdersRouter = require('./routes/ordersRoute.js');  
 
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
 const path = require('path');
 const app = express();
@@ -22,8 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ContactRouter);
 app.use(ProductRouter);
-app.use(OrdersRouter);
-// const stripe = require('stripe')(stripeSecretKey)
+
 //setup and establish connection to mongodb client and mongoose orm
 mongoose.connect('mongodb://localhost/goldenshoeDB', { useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.connection.once('open', function () {
@@ -42,37 +38,7 @@ app.get('/', function (req, res) {
 app.get('/home', function (req, res) {
   res.render('home');
 });
- 
-// app.post('/purchase', function (req, res) {
-//   fs.readFile('items.json', function (error, data) {
-//     if (error) {
-//       res.status(500).end()
-//     } else {
-//       const itemsJson = JSON.parse(data)
-//       const itemsArray = itemsJson.music.concat(itemsJson.merch)
-//       let total = 0
-//       req.body.items.forEach(function (item) {
-//         const itemJson = itemsArray.find(function (i) {
-//           return i.id == item.id
-//         })
-//         total = total + itemJson.price * item.quantity
-//       })
-
-//       stripe.charges.create({
-//         amount: total,
-//         source: req.body.stripeTokenId,
-//         currency: 'usd'
-//       }).then(function () {
-//         console.log('Charge Successful')
-//         res.json({ message: 'Successfully purchased items' })
-//       }).catch(function () {
-//         console.log('Charge Fail')
-//         res.status(500).end()
-//       })
-//     }
-//   })
-// })
-// ERROR PAGE
+ // ERROR PAGE
 app.use((req, res) => {
   res.status(404).send('<h1>Sorry, Page not found. Have you checked the correct URL ?');
 });
