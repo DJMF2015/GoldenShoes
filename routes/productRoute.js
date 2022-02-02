@@ -281,44 +281,6 @@ router.get('/product/:type', function (req, res) {
 });
 
 
-
-// REMOVE FROM CART
-// router.get('/removeCart/:ID', function(req, res, err){
-  // var Id = req.sanitize(req.params.ID);
-  // var cookieValue = req.cookies;
-  // var cookieCart = req.sanitize(cookieValue.cart);
-
-  // if (!cookieCart) {
-  //   var cookieArray = [];
-  //   cookieArray.push(Id);
-  //   var cookieStringArray = JSON.stringify(cookieArray);
-
-  //   res.cookie('cart', cookieStringArray);
-  //   res.send({ cartNumb: 1 });
-  // } else {
-  //   var cartValue = cookieCart;
-  //   var cookieArray = JSON.parse(cartValue);
-  //   cookieArray.push(Id);
-  //   var cookieStringArray = JSON.stringify(cookieArray);
-
-  //   res.clearCookie('cart');
-  //   res.cookie('cart', cookieStringArray);
-  //   res.send({ cartNumb: cookieArray.length });
-  // }
-//   var cookieValue = req.cookies;
-//   var cookieCart = req.sanitize(cookieValue.cart);
-//   var cookieArray = JSON.parse(cookieCart);
-//   var IDremove = req.sanitize(req.params.ID);
-
-//   for (var i = 0; i < cookieArray.length; i++) {
-//     if (cookieArray[i] == IDremove) {
-//       cookieArray.splice(i, 1);
-//       break;
-
-//     }
-//   }
-// });
-
 // ADD TO CART
 router.get('/addCart/:ID', function (req, res) {
   var ID = req.sanitize(req.params.ID);
